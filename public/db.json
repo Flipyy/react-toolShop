@@ -1,0 +1,94 @@
+{
+  "tools": [
+    {
+      "id": 0,
+      "imageUrl": "https://cdn.vseinstrumenti.ru/images/goods/instrument/feny/701330/1200x800/51749918.jpg",
+      "name": "Термопистолет AEG HG560D 441015",
+      "price": 3564,
+      "availability": 12,
+      "category": 4,
+      "rating": 8
+    },
+    {
+      "id": 1,
+      "imageUrl": "https://cdn.vseinstrumenti.ru/images/goods/instrument/shurupoverty/698641/1200x800/52002189.jpg",
+      "name": "Аккумуляторная дрель-шуруповерт DeWALT DCD 771 C2",
+      "price": 9450,
+      "availability": 5,
+      "category": 0,
+      "rating": 9
+    },
+    {
+      "id": 2,
+      "imageUrl": "https://cdn.vseinstrumenti.ru/images/goods/instrument/shurupoverty/881041/1200x800/52316894.jpg",
+      "name": "Бесщеточная дрель-шуруповерт AEG BS18C2BL LI-402C 4935464095",
+      "price": 20246,
+      "availability": 6,
+      "category": 0,
+      "rating": 8
+    },
+    {
+      "id": 3,
+      "imageUrl": "https://cdn.vseinstrumenti.ru/images/goods/instrument/shlifmashiny/819645/1200x800/51956344.jpg",
+      "name": "Угловая шлифмашина Ryobi RAG950-125S 5133002495",
+      "price": 5489,
+      "availability": 21,
+      "category": 2,
+      "rating": 6
+    },
+    {
+      "id": 4,
+      "imageUrl": "https://cdn.vseinstrumenti.ru/images/goods/instrument/feny/850697/1200x800/51280696.jpg",
+      "name": "Термофен GRAPHITE 59G522",
+      "price": 2162,
+      "availability": 7,
+      "category": 4,
+      "rating": 6
+    },
+    {
+      "id": 5,
+      "imageUrl": "https://cdn.vseinstrumenti.ru/images/goods/sadovaya-tehnika/benzopily/736719/1200x800/52860933.jpg",
+      "name": "Бензопила Калибр БП-2600/18У 00000057838",
+      "price": 5019,
+      "availability": 5,
+      "category": 1,
+      "rating": 6
+    },
+    {
+      "id": 6,
+      "imageUrl": "https://cdn.vseinstrumenti.ru/images/goods/sadovaya-tehnika/benzopily/725945/1200x800/52341955.jpg",
+      "name": "Цепная пила Ryobi RCS3840T 5133002387",
+      "price": 13577,
+      "availability": 4,
+      "category": 1,
+      "rating": 8
+    },
+    {
+      "id": 7,
+      "imageUrl": "https://cdn.vseinstrumenti.ru/images/goods/ruchnoy-instrument/nozhovki/1077776/1200x800/52072968.jpg",
+      "name": "Ножовка по дереву Inforce 550 мм 06-08-19",
+      "price": 1121,
+      "availability": 8,
+      "category": 1,
+      "rating": 7
+    },
+    {
+      "id": 8,
+      "imageUrl": "https://cdn.vseinstrumenti.ru/images/goods/avtogarazhnoe-oborudovanie/oborudovanie-i-instrument-dlya-avtoservisa-i-sto/728122/1200x800/51729953.jpg",
+      "name": "Компрессор для авто Ryobi ONE+ R18I-0 5133001834",
+      "price": 3984,
+      "availability": 11,
+      "category": 3,
+      "rating": 5
+    },
+    {
+      "id": 9,
+      "imageUrl": "https://cdn.vseinstrumenti.ru/images/goods/instrument/kompressory/1322370/1200x800/51725006.jpg",
+      "name": "Ременной компрессор Inforce BCX-100L 04-06-31",
+      "price": 34288,
+      "availability": 6,
+      "category": 3,
+      "rating": 8
+    }
+  ]
+}
