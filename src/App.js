@@ -1,12 +1,16 @@
 import React from "react";
-import './App.css';
+import {Route} from "react-router-dom";
+
+import Header from "./components/Header";
+import {Cart, Home} from "./pages";
 
 function App() {
   return (
       <div className="wrapper">
         <Header />
         <div className="content">
-
+            <Route path="/" component={Home} exact />
+            <Route path="/cart" component={Cart} exact />
         </div>
       </div>
   );
