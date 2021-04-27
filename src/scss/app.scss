@@ -3,6 +3,18 @@
 @import 'global';
 @import 'components/all';
 
-
+.content{
+  padding: 40px 0;
+  &__top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__items{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 40px 0 0;
+  }
+}
 
 @import 'media';

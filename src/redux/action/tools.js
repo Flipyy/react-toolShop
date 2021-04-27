@@ -7,7 +7,7 @@ export const setLoaded = (payload) => ({type: "SET_LOADED", payload})
 export const fetchTools = (sortBy, category) => (dispatch) => {
     dispatch(setLoaded(false))
     axios.get(
-        `/tools?${category !== null? `category=${category}`: ""}&_sort=${sortBy.type}&_order=${sortBy.order}`,
+        `http://localhost:3001/tools?${category !== null? `category=${category}`: ""}&_sort=${sortBy.type}&_order=${sortBy.order}`,
         ).then(({data}) => {
             dispatch(setTools(data))
     })
