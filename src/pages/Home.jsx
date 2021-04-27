@@ -4,6 +4,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {Categories, ToolBlock, SortPopup} from "../components";
 import {fetchTools} from "../redux/action/tools";
 import {setCategory, setSortBy} from "../redux/action/filters"
+import {addToolToCart} from "../redux/action/cart";
 
 
 const categoryNames = ["дрели", "пилы", "Болгарки", "Компрессоры", "Строительные фены"];
@@ -13,11 +14,12 @@ const sortItems = [
     { name: 'алфавит', type: 'name', order: 'asc' },
 ];
 
-let Home = () => {
+const Home = () => {
 
     const dispatch = useDispatch()
 
     const items = useSelector(({tools}) => tools.items)
+    const cartItems = useSelector(({cart}) => cart.items)
     const isLoaded =  useSelector(({tools}) => tools.isLoaded)
     const {category, sortBy} = useSelector(({filters}) => filters)
 
@@ -33,6 +35,9 @@ let Home = () => {
         dispatch(setSortBy(type));
     }, []);
 
+    const handleAddToolToCart = (obj) => {
+        dispatch(addToolToCart(obj))
+    }
 
     return (
         <div className="container">
@@ -52,6 +57,8 @@ let Home = () => {
                 {items &&
                 items.map((obj) => (
                     <ToolBlock
+                        onClickAddTool={handleAddToolToCart}
+                        addedCount={cartItems[obj.id] && cartItems[obj.id].items.length}
                         key={obj.id}
                         {...obj}
                     />

@@ -46,8 +46,8 @@ const cart = (state = initialState, action) => {
                 ...state.items
             }
 
-            const currentTotalCount = newItems[action.payload].totalPrice
-            const currentTotalPrice = newItems[action.payload].items.length
+            const currentTotalPrice = newItems[action.payload].totalPrice
+            const currentTotalCount = newItems[action.payload].items.length
 
             delete newItems[action.payload]
 
@@ -84,9 +84,13 @@ const cart = (state = initialState, action) => {
             const newObjItems = oldItems.length > 1 ? state.items[action.payload].items.slice(1): oldItems
 
             const newItems = {
-                items: newObjItems,
-                totalPrice: getTotalPrice(newObjItems)
+                ...state.items,
+                [action.payload]: {
+                    items: newObjItems,
+                    totalPrice: getTotalPrice(newObjItems)
+                }
             }
+
 
             const totalPrice = getTotalSum(newItems, 'totalPrice');
             const totalCount = getTotalSum(newItems, 'items.length');

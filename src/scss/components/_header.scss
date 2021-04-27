@@ -36,6 +36,7 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
+    cursor: pointer;
     &:hover{
       color:#fff;
       background-color: #f10000;
@@ -45,26 +46,14 @@
     }
     .line{
       display: block;
-      width: 15px;
-      height: 1px;
+      width: 2px;
+      height: 15px;
       background-color: #fff;
     }
     span{
       font-size: 16px;
       line-height: 19px;
       display: flex;
-    }
-    span:first-child{
-      position: relative;
-      &:before{
-        content: "";
-        position: absolute;
-        width: 2px;
-        height: 15px;
-        background-color: #fff;
-        right: -25px;
-        top: 0;
-      }
     }
     svg{
       margin-right: 2px;

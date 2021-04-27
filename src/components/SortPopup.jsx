@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React from "react";
 
 
 const SortPopup = React.memo(({activeSortType, items, onClickSortType}) => {
@@ -24,7 +24,7 @@ const SortPopup = React.memo(({activeSortType, items, onClickSortType}) => {
         setVisiblePopup(false)
     }
 
-    useEffect(() => {
+    React.useEffect(() => {
         window.addEventListener('click', outsideClick)
     }, [])
 

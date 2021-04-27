@@ -1,6 +1,16 @@
 import React from "react";
 
-const ToolBlock = ({id, imageUrl, name, price, availability}) => {
+const ToolBlock = ({id, imageUrl, name, price, availability, onClickAddTool, addedCount}) => {
+
+    const onAddTool = () => {
+        const obj = {
+            id,
+            name,
+            imageUrl,
+            price
+        }
+        onClickAddTool(obj)
+    }
 
     return (
         <div className="tool-block">
@@ -8,7 +18,8 @@ const ToolBlock = ({id, imageUrl, name, price, availability}) => {
             <h4 className="tool-block__title">{name}</h4>
             <div className="tool-block__bottom">
                 <div className="tool-block__price">{price} ₽</div>
-                <button className="tool-block__btn" >
+                <button className="tool-block__btn"
+                    onClick={onAddTool}>
                     <svg width="12"
                          height="12"
                          viewBox="0 0 12 12"
@@ -18,6 +29,7 @@ const ToolBlock = ({id, imageUrl, name, price, availability}) => {
                               fill="white"/>
                     </svg>
                     Добавить
+                    {addedCount && <span>{addedCount}</span>}
                 </button>
             </div>
         </div>

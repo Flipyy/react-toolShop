@@ -1,9 +1,14 @@
 import React from "react";
 import {Link} from "react-router-dom";
+import {useSelector} from "react-redux";
 
 import logoSvg from "../assets/img/tools.svg"
 
-let Header = () => {
+
+const Header = () => {
+    const {totalPrice, totalCount} = useSelector(({cart}) => cart)
+
+
     return (
         <header className="header">
             <div className="container">
@@ -18,8 +23,8 @@ let Header = () => {
                 </Link>
                 <Link to="/cart">
                     <button className="btn header__btn">
-                        <span>0 ₽</span>
-
+                        <span>{totalPrice} ₽</span>
+                        <span className="line"></span>
                         <span>
                         <svg height="18px"
                              viewBox="0 -31 512.00026 512"
@@ -29,7 +34,7 @@ let Header = () => {
                             <path d="m150 405c0 24.8125 20.1875 45 45 45s45-20.1875 45-45-20.1875-45-45-45-45 20.1875-45 45zm45-15c8.269531 0 15 6.730469 15 15s-6.730469 15-15 15-15-6.730469-15-15 6.730469-15 15-15zm0 0"/>
                             <path d="m362 405c0 24.8125 20.1875 45 45 45s45-20.1875 45-45-20.1875-45-45-45-45 20.1875-45 45zm45-15c8.269531 0 15 6.730469 15 15s-6.730469 15-15 15-15-6.730469-15-15 6.730469-15 15-15zm0 0"/>
                         </svg>
-                            0
+                            {totalCount}
                         </span>
                     </button>
                 </Link>
