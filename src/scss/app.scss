@@ -9,6 +9,7 @@
   margin: 0 auto;
   border-radius: 8px;
   max-width: 1400px;
+  padding: 0 10px;
 }
 
 .container{
@@ -35,6 +36,10 @@
     flex-wrap: wrap;
     padding: 40px 0 0;
   }
+}
+
+.menu__btn-wrapper{
+  display: none;
 }
 
 @import 'media';

@@ -1,14 +1,11 @@
-import axios from "axios";
+import {toolsAPI} from "../../api/api";
 
 export const setTools = (items) => ({type: "SET_TOOLS", payload:items})
 
 export const setLoaded = (payload) => ({type: "SET_LOADED", payload})
 
-export const fetchTools = (sortBy, category) => (dispatch) => {
+export const fetchTools = (sortBy, category) => async (dispatch) => {
     dispatch(setLoaded(false))
-    axios.get(
-        `http://localhost:3001/tools?${category !== null? `category=${category}`: ""}&_sort=${sortBy.type}&_order=${sortBy.order}`,
-        ).then(({data}) => {
-            dispatch(setTools(data))
-    })
+    let response = await toolsAPI.getTools(sortBy, category)
+    dispatch(setTools(response.data))
 }

@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 
 import {Categories, ToolBlock, SortPopup} from "../components";
@@ -15,6 +15,7 @@ const sortItems = [
 ];
 
 const Home = () => {
+    const [menuActive, setMenuActive] = useState(false)
 
     const dispatch = useDispatch()
 
@@ -39,14 +40,24 @@ const Home = () => {
         dispatch(addToolToCart(obj))
     }
 
+    const handleSetMenuActive = () => {
+        setMenuActive(!menuActive)
+    }
+
     return (
         <div className="container">
             <div className="content__top">
+
                 <Categories
+                    menuActive={menuActive}
+                    onMenuActive={handleSetMenuActive}
                     activeCategory={category}
                     items={categoryNames}
                     onClickCategory={onSelectCategory}
                 />
+                <div className="menu__btn-wrapper">
+                    <button className={menuActive ? "menu__btn active" : "menu__btn" } onClick={handleSetMenuActive}><span/></button>
+                </div>
                 <SortPopup
                     activeSortType={sortBy.type}
                     items={sortItems}
