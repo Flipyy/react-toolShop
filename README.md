@@ -9,6 +9,6 @@
   <li>Redux thunk</li>
   <li>json-server</li>
   <li>Axios</li>
-  <li>lodash</li>
+  <li>Lodash</li>
   <li>classnames</li>
 </ul>
