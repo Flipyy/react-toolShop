@@ -1,6 +1,6 @@
 import React from "react";
 
-const ToolBlock = ({id, imageUrl, name, price, availability, onClickAddTool, addedCount}) => {
+const ToolBlock = ({id, imageUrl, name, description, price, availability, onClickAddTool, addedCount, onClickOpenModal}) => {
 
     const onAddTool = () => {
         const obj = {
@@ -12,8 +12,20 @@ const ToolBlock = ({id, imageUrl, name, price, availability, onClickAddTool, add
         onClickAddTool(obj)
     }
 
+    const modalWindow = () => {
+        const obj = {
+            id,
+            name,
+            description,
+            imageUrl,
+            price
+        }
+        onClickOpenModal(obj)
+    }
+
     return (
         <div className="tool-block">
+            <button className="tool-block__detail" onClick={modalWindow}>Подробнее...</button>
             <img className="tool-block__img" src={imageUrl} alt=""/>
             <h4 className="tool-block__title">{name}</h4>
             <div className="tool-block__bottom">

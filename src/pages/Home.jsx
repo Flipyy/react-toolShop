@@ -1,11 +1,12 @@
 import React, {useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 
-import {Categories, ToolBlock, SortPopup} from "../components";
+import {Categories, ToolBlock, SortPopup, ModalWindow} from "../components";
 import {fetchTools} from "../redux/action/tools";
 import {setCategory, setSortBy} from "../redux/action/filters"
 import {addToolToCart} from "../redux/action/cart";
 
+let objModelWindow
 
 const categoryNames = ["дрели", "пилы", "Болгарки", "Компрессоры", "Строительные фены"];
 const sortItems = [
@@ -16,6 +17,9 @@ const sortItems = [
 
 const Home = () => {
     const [menuActive, setMenuActive] = useState(false)
+    const [modalWindow, setModalWindow] = useState(false)
+
+    const menuRef = React.useRef()
 
     const dispatch = useDispatch()
 
@@ -27,6 +31,10 @@ const Home = () => {
     React.useEffect(() => {
         dispatch(fetchTools(sortBy, category))
     },[category, sortBy])
+
+    React.useEffect(() => {
+        window.addEventListener('click', outsideClickMenu)
+    }, [])
 
     const onSelectCategory = React.useCallback((index) => {
         dispatch(setCategory(index))
@@ -44,19 +52,38 @@ const Home = () => {
         setMenuActive(!menuActive)
     }
 
+    const handleOpenModalWindow = (obj) => {
+        objModelWindow = obj
+        setModalWindow(true)
+        document.body.style.overflowY = "hidden"
+    }
+
+    const handleCloseModalWindow = () => {
+        setModalWindow(false)
+        document.body.style.overflowY = ""
+    }
+
+    const outsideClickMenu = (event) => {
+        const path = event.path || (event.composedPath && event.composedPath());
+        if (!path.includes(menuRef.current)) {
+            setMenuActive(false)
+        }
+    }
+
     return (
         <div className="container">
             <div className="content__top">
-
-                <Categories
-                    menuActive={menuActive}
-                    onMenuActive={handleSetMenuActive}
-                    activeCategory={category}
-                    items={categoryNames}
-                    onClickCategory={onSelectCategory}
-                />
-                <div className="menu__btn-wrapper">
-                    <button className={menuActive ? "menu__btn active" : "menu__btn" } onClick={handleSetMenuActive}><span/></button>
+                <div ref={menuRef}>
+                    <Categories
+                        menuActive={menuActive}
+                        onMenuActive={handleSetMenuActive}
+                        activeCategory={category}
+                        items={categoryNames}
+                        onClickCategory={onSelectCategory}
+                    />
+                    <div className="menu__btn-wrapper">
+                        <button className={menuActive ? "menu__btn active" : "menu__btn" } onClick={handleSetMenuActive}><span/></button>
+                    </div>
                 </div>
                 <SortPopup
                     activeSortType={sortBy.type}
@@ -69,6 +96,7 @@ const Home = () => {
                 items.map((obj) => (
                     <ToolBlock
                         onClickAddTool={handleAddToolToCart}
+                        onClickOpenModal={handleOpenModalWindow}
                         addedCount={cartItems[obj.id] && cartItems[obj.id].items.length}
                         key={obj.id}
                         {...obj}
@@ -76,6 +104,12 @@ const Home = () => {
                 ))
                 }
             </div>
+            {modalWindow && (
+                <ModalWindow
+                    onClickCloseModel={handleCloseModalWindow}
+                    obj={objModelWindow}
+                />
+            )}
         </div>
     )
 }
